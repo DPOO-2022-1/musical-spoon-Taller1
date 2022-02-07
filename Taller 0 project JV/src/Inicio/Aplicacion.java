@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 
 public class Aplicacion {
 	
+	Restaurante restaurante = null;
 	
 	public static void main(String[] args) 
 	{
@@ -52,7 +53,12 @@ public class Aplicacion {
 	
 	public void ejecutarOpcion(int opcion) {
 		
-		System.out.println(opcion);
+		if (opcion == 1 && restaurante != null) {
+			
+			restaurante = new Restaurante();
+			
+		}
+		
 		
 	}
 	
