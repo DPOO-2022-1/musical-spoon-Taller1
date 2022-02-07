@@ -2,6 +2,8 @@ package Inicio;
 
 import java.io.File;
 
+import modelo.Pedidos;
+
 public class Restaurante {
 	
 	public static void main(String[] args) 
@@ -11,10 +13,14 @@ public class Restaurante {
 		
 	}
 	
-	public void iniciarPedido(String nombreCLiente, String direccionCliente) 
+	
+	
+	public void iniciarPedido(String nombreCliente, String direccionCliente) 
+
 	{
-		
+		Pedidos pedido1 = new Pedidos(nombreCliente, direccionCliente);
 		System.out.println("Iniciando pedido");
+		System.out.println("Se creo el pedido para el cliente :" + pedido1.getNombreCliente() + "de direccion: " + pedido1.getDireccionCliente());
 		
 	}
 	
@@ -25,9 +31,9 @@ public class Restaurante {
 		
 	}
 	
-	public String getPedidoEnCurso() 
+	public Pedidos getPedidoEnCurso() 
 	{
-		String pedido = "getPedidoEnCurso";
+		Pedidos pedido = null;
 		System.out.println("getPedidoEnCurso");
 		return pedido;
 		
