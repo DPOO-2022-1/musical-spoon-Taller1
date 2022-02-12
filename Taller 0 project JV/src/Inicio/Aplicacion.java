@@ -1,15 +1,19 @@
 package Inicio;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import modelo.Ingredientes;
 
 
 
 public class Aplicacion {
 	
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws FileNotFoundException, IOException 
 	{
 		
 		Aplicacion aplicacion = new Aplicacion();
@@ -18,7 +22,7 @@ public class Aplicacion {
 	}
 	
 	
-	public void ejecutarApp() {
+	public void ejecutarApp() throws FileNotFoundException, IOException {
 		
 		boolean continuar = true;
 		while(continuar) {
@@ -28,7 +32,12 @@ public class Aplicacion {
 			
 			if (opcion_seleccionada == 0) {
 				continuar = false;
-			} else {
+			}
+			else if(opcion_seleccionada == 1) 
+			{
+				ejecutar_cargar_restaurante();
+			}
+			else {
 				ejecutarOpcion(opcion_seleccionada);
 			}
 			
@@ -55,6 +64,19 @@ public class Aplicacion {
 		System.out.println(opcion);
 		
 	}
+	
+	
+	private void ejecutar_cargar_restaurante() throws FileNotFoundException, IOException
+	{
+		
+		Restaurante.cargarInformacionRestaurante();
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 	public String input(String mensaje)

@@ -1,24 +1,23 @@
 package Inicio;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
+import modelo.Ingredientes;
 import modelo.Pedidos;
 
 public class Restaurante {
-	
-	public static void main(String[] args) 
-	{
-	
-		
-		
-	}
-	
 	
 	
 	public void iniciarPedido(String nombreCliente, String direccionCliente) 
 
 	{
 		Pedidos pedido1 = new Pedidos(nombreCliente, direccionCliente);
+		Boolean pedidoEnCurso = true;
 		System.out.println("Iniciando pedido");
 		System.out.println("Se creo el pedido para el cliente :" + pedido1.getNombreCliente() + "de direccion: " + pedido1.getDireccionCliente());
 		
@@ -56,18 +55,45 @@ public class Restaurante {
 	}
 	
 	
-	public void cargarInformacionRestaurante(File archivoIngredientes, File archivoMenu, File archivoCombos) 
+	public static void cargarInformacionRestaurante() throws FileNotFoundException, IOException 
 	{
 		
-		System.out.println("cargarInformacionRestaurante");
+		ArrayList<Ingredientes> ingredientes= cargarIngredientes("./data/ingredientes.txt");
+		int x = 0;
+		while (x < ingredientes.size())
+		{
+			Ingredientes ingrediente= ingredientes.get(x);
+			System.out.println(ingrediente.getNombre());
+			System.out.println(ingrediente.getCostoAdicional());
+			x+=1;
+		}
 		
 		
 	}
 	
-	public void cargarIngredientese(File archivoIngredientes) 
+	public static ArrayList<Ingredientes> cargarIngredientes(String nombre) throws FileNotFoundException, IOException
 	{
+		ArrayList<Ingredientes> lista = new ArrayList<>();
+		try (BufferedReader br = new BufferedReader(new FileReader(nombre))) 
+		{
+			String linea = br.readLine();
+			linea = br.readLine();
+			
+			while (linea != null) 
+			{
+				
+				String[] partes = linea.split(";");
+				int precio= Integer.parseInt(partes[1]);
+				Ingredientes ingrediente = new Ingredientes(partes[0], precio);
+				lista.add(ingrediente);
+				linea = br.readLine();
+				
+			}
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		return lista;
 		
-		System.out.println("archivoIngredientes");
 		
 		
 	}
