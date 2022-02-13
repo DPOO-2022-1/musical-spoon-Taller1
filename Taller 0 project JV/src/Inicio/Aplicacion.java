@@ -58,7 +58,7 @@ public class Aplicacion {
 	
 	public void ejecutarOpcion(int opcion) throws FileNotFoundException, IOException {
 		
-		if (opcion == 1 && restaurante != null) {
+		if (opcion == 1 && restaurante == null) {
 			
 			restaurante = new Restaurante();
 			ejecutar_cargar_restaurante();
