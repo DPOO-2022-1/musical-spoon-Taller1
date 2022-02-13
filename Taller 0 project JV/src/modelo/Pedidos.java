@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Pedidos {
 	
 	private int idPedido;
@@ -7,6 +9,8 @@ public class Pedidos {
 	private String nombreCliente;
 	
 	private String direccionCliente;
+	
+	private ArrayList<Combo> combos;
 	
 	
 	public Pedidos(String nombreCliente, String direccionCliente) 
