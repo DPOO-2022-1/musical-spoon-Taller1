@@ -33,12 +33,7 @@ public class Aplicacion {
 			
 			if (opcion_seleccionada == 0) {
 				continuar = false;
-			}
-			else if(opcion_seleccionada == 1) 
-			{
-				ejecutar_cargar_restaurante();
-			}
-			else {
+			} else {
 				ejecutarOpcion(opcion_seleccionada);
 			}
 			
@@ -61,11 +56,12 @@ public class Aplicacion {
 	}
 	
 	
-	public void ejecutarOpcion(int opcion) {
+	public void ejecutarOpcion(int opcion) throws FileNotFoundException, IOException {
 		
 		if (opcion == 1 && restaurante != null) {
 			
 			restaurante = new Restaurante();
+			ejecutar_cargar_restaurante();
 			
 		}
 		
@@ -78,13 +74,7 @@ public class Aplicacion {
 		Restaurante.cargarInformacionRestaurante();
 		
 	}
-	
-	
-	
-	
-	
-	
-	
+		
 	public String input(String mensaje)
 	{
 		try
