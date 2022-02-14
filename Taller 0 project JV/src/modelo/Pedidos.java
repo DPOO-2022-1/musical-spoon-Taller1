@@ -12,6 +12,8 @@ public class Pedidos {
 	
 	private ArrayList<Combo> combos;
 	
+	public ArrayList<Producto> itemsPedido;
+	
 	
 	public Pedidos(String nombreCliente, String direccionCliente, String idPedido) 
 	{

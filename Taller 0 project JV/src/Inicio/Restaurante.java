@@ -24,18 +24,20 @@ public class Restaurante {
 	public ArrayList<ProductoMenu> ProductosMenu;
 	public Pedidos pedidoActual;
 	public Boolean pedidoEnCurso = false;
-	public int numPedido = 1;
+	public int numPedido = 0;
+	public String idPedidoActual = "";
 	
 	
-	public void iniciarPedido(String nombreCliente, String direccionCliente) 
+	public Pedidos iniciarPedido(String nombreCliente, String direccionCliente) 
 	{
-		String idPedido = nombreCliente + String.valueOf(numPedido);
+		
+		idPedidoActual = nombreCliente + String.valueOf(numPedido);
 		this.numPedido = numPedido+1;
-		Pedidos pedido1 = new Pedidos(nombreCliente, direccionCliente,idPedido);
+		Pedidos pedido1 = new Pedidos(nombreCliente, direccionCliente,idPedidoActual);
 		this.pedidoEnCurso = true;
 		System.out.println("Iniciando pedido");
 		System.out.println("Se creo el pedido para el cliente :" + pedido1.getNombreCliente() + "de direccion: " + pedido1.getDireccionCliente());
-		
+		return pedido1;
 	}
 	
 	public void cerrarYGuardarPedido() 
@@ -226,6 +228,10 @@ public class Restaurante {
             e.printStackTrace();
         }
 		
+	}
+	
+	public String getIdPedido() {
+		return idPedidoActual;
 	}
 	
 	
