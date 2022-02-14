@@ -24,7 +24,7 @@ public class Restaurante {
 	public ArrayList<ProductoMenu> ProductosMenu;
 	public ArrayList<Combo> combos;
 	public Pedidos pedidoActual;
-	public ArrayList<Pedidos> pedidosCerrado = new ArrayList();
+	public ArrayList<Pedidos> pedidosCerrado;
 	public Boolean pedidoEnCurso = false;
 	public int numPedido = 0;
 	public String idPedidoActual = "";
@@ -255,8 +255,6 @@ public class Restaurante {
 	
 	public void cerrarPedidoActual() {
 		
-		
-		pedidosCerrado.put(pedidoActual);
 		
 	}
 	
