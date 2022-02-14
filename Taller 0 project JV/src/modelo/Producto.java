@@ -1,8 +1,10 @@
 package modelo;
 
-public class Producto {
+interface Producto {
 	
-	
-	
-	
+	public int getPrecio();
+	public String getNombre();
+	public String generarTextoFactura();
+
+
 }
