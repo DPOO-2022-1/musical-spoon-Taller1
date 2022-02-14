@@ -18,6 +18,7 @@ public class Restaurante {
 	public ArrayList<Ingredientes> ingredientes; 
 	public ArrayList<ProductoMenu> ProductosMenu;
 	public Pedidos pedidoActual;
+	public Boolean pedidoEnCurso = false;
 	public int numPedido = 1;
 	
 	
@@ -26,7 +27,7 @@ public class Restaurante {
 		String idPedido = nombreCliente + String.valueOf(numPedido);
 		this.numPedido = numPedido+1;
 		Pedidos pedido1 = new Pedidos(nombreCliente, direccionCliente,idPedido);
-		Boolean pedidoEnCurso = true;
+		this.pedidoEnCurso = true;
 		System.out.println("Iniciando pedido");
 		System.out.println("Se creo el pedido para el cliente :" + pedido1.getNombreCliente() + "de direccion: " + pedido1.getDireccionCliente());
 		
