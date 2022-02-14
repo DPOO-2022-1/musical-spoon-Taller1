@@ -10,9 +10,13 @@ import java.util.ArrayList;
 import modelo.Combo;
 import modelo.Ingredientes;
 import modelo.Pedidos;
+import modelo.ProductoMenu;
 
 public class Restaurante {
 	
+	
+	public ArrayList<Ingredientes> ingredientes; 
+	public ArrayList<ProductoMenu> ProductosMenu;
 	
 	public void iniciarPedido(String nombreCliente, String direccionCliente) 
 
@@ -69,6 +73,7 @@ public class Restaurante {
 			x+=1;
 		}
 		
+
 		ArrayList<Combo> combos = cargarCombos("./data/combos.txt");
 		int y = 0;
 		while (y < combos.size())
@@ -78,6 +83,19 @@ public class Restaurante {
 			System.out.println(combo.getDescuento());
 			x+=1;
 		}
+
+		ArrayList<ProductoMenu> ProductosMenu = cargarProductoMenu("./data/menu.txt");
+		
+		int x1 = 0;
+		while (x1 < ProductosMenu.size())
+		{
+			ProductoMenu producto= ProductosMenu.get(x1);
+			System.out.println(producto.getNombre());
+			System.out.println(producto.getPrecioBase());
+			x1+=1;
+		}
+		
+
 		
 	}
 	
@@ -103,9 +121,32 @@ public class Restaurante {
 			e.printStackTrace();
 		}
 		return lista;
-		
-		
-		
+			
+	}
+	
+	public static ArrayList<ProductoMenu> cargarProductoMenu(String nombre) throws FileNotFoundException, IOException
+	{
+		ArrayList<ProductoMenu> lista = new ArrayList<>();
+		try (BufferedReader br = new BufferedReader(new FileReader(nombre))) 
+		{
+			String linea = br.readLine();
+			linea = br.readLine();
+			
+			while (linea != null) 
+			{
+				
+				String[] partes = linea.split(";");
+				int precio= Integer.parseInt(partes[1]);
+				ProductoMenu producto = new ProductoMenu(partes[0], precio);
+				lista.add(producto);
+				linea = br.readLine();
+				
+			}
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		return lista;
+	
 	}
 	
 	public static ArrayList<Combo> cargarCombos(String nombre) throws FileNotFoundException, IOException
