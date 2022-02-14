@@ -58,8 +58,19 @@ public class Combo implements Producto{
 
 	@Override
 	public String generarTextoFactura() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String texto = "\n" + nombreCombo + ": " + costo + "\n" ;
+		
+		for (ProductoMenu x: items) {
+			
+			String texto2 = "\t -- " + x.getNombre();
+			texto = texto + texto2;
+			
+		}
+		
+		
+		
+		return texto;
 	}
 	
 	
