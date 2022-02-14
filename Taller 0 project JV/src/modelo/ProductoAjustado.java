@@ -26,19 +26,18 @@ public class ProductoAjustado implements Producto {
 		return costo;
 	}
 	
-	public ArrayList<Ingredientes> agregar_ingrediente(ArrayList<Ingredientes> ingredientes, int numero) 
+	public void agregar_ingrediente(ArrayList<Ingredientes> ingredientes, int numero) 
 	{
 		Ingredientes x= ingredientes.get(numero);
 		modificar_costo(x);
 		agregados.add(x);
-		return agregados;
+
 	}
 	
-	public ArrayList<Ingredientes> eliminar_ingrediente(ArrayList<Ingredientes> ingredientes, int numero) 
+	public void eliminar_ingrediente(ArrayList<Ingredientes> ingredientes, int numero) 
 	{
 		Ingredientes x= ingredientes.get(numero);
 		eliminados.add(x);
-		return eliminados;
 	}
 	
 	public int getPrecio() {
