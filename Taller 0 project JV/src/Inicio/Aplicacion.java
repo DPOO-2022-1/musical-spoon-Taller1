@@ -173,6 +173,22 @@ public class Aplicacion {
 					} else if (producto_seleccionado == 22) {
 						///gaseosa
 					}
+					System.out.println("Desea anadir o eliminar ingredientes de su producto?");
+					System.out.println("Elige una opcion: ");
+					System.out.println("1) Anadir");
+					System.out.println("2) Eliminar");
+					System.out.println("3) Ninguna de las anteriores");
+					int producto_modificado_sellecionado = Integer.parseInt(input("Por favor seleccione una opción"));
+					if (producto_modificado_sellecionado == 1) {
+						///anade ingrediente
+					} else if (producto_seleccionado == 2) {
+						///quita ingrediente 
+					}  else if (producto_seleccionado == 3) {
+						///no hay modificaciones
+					}
+					
+					
+					
 					
 					
 				}

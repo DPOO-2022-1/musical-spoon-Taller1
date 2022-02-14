@@ -112,6 +112,8 @@ public class Restaurante {
 		
 	}
 	
+	
+	
 	public static ArrayList<Ingredientes> cargarIngredientes(String nombre) throws FileNotFoundException, IOException
 	{
 		ArrayList<Ingredientes> lista = new ArrayList<>();
