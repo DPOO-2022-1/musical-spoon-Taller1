@@ -22,6 +22,7 @@ public class Restaurante {
 	
 	public ArrayList<Ingredientes> ingredientes; 
 	public ArrayList<ProductoMenu> ProductosMenu;
+	public ArrayList<Combo> combos;
 	public Pedidos pedidoActual;
 	public Boolean pedidoEnCurso = false;
 	public int numPedido = 1;
@@ -166,13 +167,30 @@ public class Restaurante {
 		{
 			String linea = br.readLine();
 			linea = br.readLine();
-			
+			ArrayList<ProductoMenu> productos = cargarProductoMenu("./data/menu.txt");
 			while (linea != null) 
 			{
 				
 				String[] partes = linea.split(";");
-				double descuento= Integer.parseInt(partes[1]);
-				Combo combo = new Combo(descuento, partes[0]);
+				String porcentaje = partes[1].substring(0, partes[1].length()-1);
+				ArrayList<ProductoMenu> items = new ArrayList<ProductoMenu>();
+				double descuento= Double.parseDouble(porcentaje)/100;
+				int x = 2;
+				while(x < partes.length) 
+				{
+					int y = 0;
+					while(y < productos.size()) 
+					{
+						if(productos.get(y).getNombre() == partes[x]) 
+						{
+							ProductoMenu item = productos.get(y);
+							items.add(item);
+						}
+						y+=1;
+					}
+					x+=1;
+				}
+				Combo combo = new Combo(descuento, partes[0], items);
 				lista.add(combo);
 				linea = br.readLine();
 				
