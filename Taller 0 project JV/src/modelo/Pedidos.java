@@ -13,22 +13,22 @@ public class Pedidos {
 	private ArrayList<Combo> combos;
 	
 	
-	public Pedidos(String nombreCliente, String direccionCliente, String id) 
+	public Pedidos(String nombreCliente, String direccionCliente, String idPedido) 
 	{
 		
 		this.setNombreCliente(nombreCliente);
 		this.setDireccionCliente(direccionCliente);
-		this.idPedido = id;
+		this.setIdPedido(direccionCliente);
 
 	}
 
 
-	public int getIdPedido() {
+	public String getIdPedido() {
 		return idPedido;
 	}
 
 
-	public void setIdPedido(int idPedido) {
+	public void setIdPedido(String idPedido) {
 		this.idPedido = idPedido;
 	}
 
