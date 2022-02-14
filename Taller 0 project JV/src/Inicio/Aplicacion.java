@@ -29,6 +29,9 @@ public class Aplicacion {
 	public void ejecutarApp() throws FileNotFoundException, IOException {
 		
 		boolean continuar = true;
+		restaurante = new Restaurante();
+		ejecutar_cargar_restaurante();
+		
 		while(continuar) {
 			
 			mostrarMenu();
@@ -49,28 +52,23 @@ public class Aplicacion {
 	{
 		
 		System.out.println("Elige una opcion: ");
-		System.out.println("1) Cargar restaurante");
-		System.out.println("2) Crear un pedido");
-		System.out.println("3) Añadir un elemento al pedido");
-		System.out.println("4) Cerrar un pedido y generar un recibo");
-		System.out.println("5) Consulta un pedido pedido");
-		System.out.println("0) Cerrar app");
+		System.out.println("1) Crear un pedido");
+		System.out.println("2) Añadir un elemento al pedido");
+		System.out.println("3) Cerrar un pedido y generar un recibo");
+		System.out.println("4) Consulta un pedido cerrado");
+		System.out.println("5) Cerrar app");
 		
 	}
 	
 	
 	public void ejecutarOpcion(int opcion) throws FileNotFoundException, IOException {
 		
-		if (opcion == 1 && restaurante == null) {
+		if (opcion == 1 ) {
 			
 			this.nombre = input("Cual es tu nombre?");
 			this.direccion = input("Cual es tu direccion");
-			restaurante = new Restaurante();
-			ejecutar_cargar_restaurante();
-			
-		} else if(opcion == 2) {
-			
 			restaurante.iniciarPedido(nombre, direccion);
+			
 			
 		}
 		
