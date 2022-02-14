@@ -1,11 +1,16 @@
 package Inicio;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 
 import modelo.Combo;
 import modelo.Ingredientes;
@@ -196,6 +201,30 @@ public class Restaurante {
 		
 		System.out.println("archivoCombos");
 		
+		
+	}
+	
+	public void crearRecibo(String textoProductos, String nombre, String id, String direccion) {
+		
+		String textoBase = "Restaurante magical spoon \n  Recibo de: " + nombre + " Para la direccion: " + direccion + " \n con el ID: " + id + " \\n \\n ==================== \n \n" + textoProductos;
+		
+		try {
+            String ruta = "/recibos/" + id + ".txt";
+            File file = new File(ruta);
+            
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            bw.write(textoBase);
+            bw.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 		
 	}
 	
