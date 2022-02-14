@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import modelo.Combo;
 import modelo.Ingredientes;
 import modelo.Pedidos;
 
@@ -68,6 +69,15 @@ public class Restaurante {
 			x+=1;
 		}
 		
+		ArrayList<Combo> combos = cargarCombos("./data/combos.txt");
+		int y = 0;
+		while (y < combos.size())
+		{
+			Combo combo = combos.get(y);
+			System.out.println(combo.getNombreCombo());
+			System.out.println(combo.getDescuento());
+			x+=1;
+		}
 		
 	}
 	
@@ -97,6 +107,35 @@ public class Restaurante {
 		
 		
 	}
+	
+	public static ArrayList<Combo> cargarCombos(String nombre) throws FileNotFoundException, IOException
+	{
+		ArrayList<Combo> lista = new ArrayList<>();
+		try (BufferedReader br = new BufferedReader(new FileReader(nombre))) 
+		{
+			String linea = br.readLine();
+			linea = br.readLine();
+			
+			while (linea != null) 
+			{
+				
+				String[] partes = linea.split(";");
+				double descuento= Integer.parseInt(partes[1]);
+				Combo combo = new Combo(descuento, partes[0]);
+				lista.add(combo);
+				linea = br.readLine();
+				
+			}
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		return lista;
+		
+		
+		
+	}
+	
+	
 	
 	public void cargarMenu(File archivoMenu) 
 	{
