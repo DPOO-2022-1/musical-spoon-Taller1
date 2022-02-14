@@ -51,8 +51,25 @@ public class ProductoAjustado implements Producto {
 
 	
 	public String generarTextoFactura() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+		String texto = "\n" + nombre + ": " + costo + "\n" ;
+		
+		for (Ingredientes x: agregados) {
+			
+			String texto2 = "++ " + x.getNombre() + ": " + x.getCostoAdicional() +"\n";
+			texto = texto + texto2;
+			
+		}
+		
+		for (Ingredientes x: eliminados) {
+			
+			String texto3 = "-- " + x.getNombre() + "\n";
+			texto = texto + texto3;
+			
+		}
+		
+		return texto;
 	}
 
 }
