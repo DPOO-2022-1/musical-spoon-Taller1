@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Pedidos {
 	
-	private int idPedido;
+	private String idPedido;
 	
 	private String nombreCliente;
 	
@@ -13,11 +13,12 @@ public class Pedidos {
 	private ArrayList<Combo> combos;
 	
 	
-	public Pedidos(String nombreCliente, String direccionCliente) 
+	public Pedidos(String nombreCliente, String direccionCliente, String id) 
 	{
 		
 		this.setNombreCliente(nombreCliente);
 		this.setDireccionCliente(direccionCliente);
+		this.idPedido = id;
 
 	}
 

@@ -14,6 +14,8 @@ import modelo.Combo;
 public class Aplicacion {
 	
 	Restaurante restaurante = null;
+	public String nombre;
+	public String direccion;
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException 
 	{
@@ -61,8 +63,14 @@ public class Aplicacion {
 		
 		if (opcion == 1 && restaurante == null) {
 			
+			this.nombre = input("Cual es tu nombre?");
+			this.direccion = input("Cual es tu direccion");
 			restaurante = new Restaurante();
 			ejecutar_cargar_restaurante();
+			
+		} else if(opcion == 2) {
+			
+			restaurante.iniciarPedido(nombre, direccion);
 			
 		}
 		
